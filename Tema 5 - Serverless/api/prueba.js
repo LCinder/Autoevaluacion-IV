@@ -1,5 +1,7 @@
 module.exports = (req, res) => {
-  const { name = 'Desconocido' } = req.query
-
-  res.status(200).send(`Hola, ${name}!`)
+  res.json({
+    body: req.body,
+    query: req.query,
+    cookies: req.cookies,
+  })
 }
