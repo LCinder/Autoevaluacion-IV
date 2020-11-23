@@ -5,3 +5,4 @@ module.exports = (req, res) => {
     cookies: req.cookies,
   })
 }
+
