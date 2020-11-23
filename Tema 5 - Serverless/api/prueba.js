@@ -10,5 +10,5 @@
 
 module.exports = (req, res) => {
 //		const {nombre = "Desconocido"} = req.query
-		res.send("Hola!");
+		res.send(`Hola!`);
 };
