@@ -1,14 +1,5 @@
-//
-// exports.handler = async (event) => {
-// 	return {
-// 		statusCode: 200,
-// 		body: "Funcionaaaa"
-// 	}
-// }
-
-
-
 module.exports = (req, res) => {
-//		const {nombre = "Desconocido"} = req.query
-		res.send(`Hola!`);
-};
+  const { name = 'World' } = req.query
+
+  res.status(200).send(`Helloo ${name}!`)
+}
