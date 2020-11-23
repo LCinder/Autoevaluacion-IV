@@ -9,6 +9,6 @@
 
 
 module.exports = (req, res) => {
-		const {nombre = "Desconocido"} = req.query
-		res.send("Hola, ${nombre}!")
-}
+//		const {nombre = "Desconocido"} = req.query
+		res.send("Hola!");
+};
