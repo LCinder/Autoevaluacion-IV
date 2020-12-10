@@ -34,6 +34,40 @@ Que básicamente obtiene la clave anteriormente asignada y la mostramos por pant
 
 ### Ejercicio 2.- Realizar una aplicación básica que use express para devolver alguna estructura de datos del modelo que se viene usando en el curso.
 
+Ésto se explicará mejor en el hito correspondiente ya que se realizarán las funciones y rutas específicas para el proyecto de la asignatura, pero básicamente en este ejemplo realizamos una petición para saber los pedidos de una mesa específica pasada por argumento, y como no existe persistencia de datos, la creamos en el momento que se realiza la petición, obteniendo una estructura de datos que en este caso es un objeto de tipo *mesa* que contiene todos los pedidos de la misma.
+
+
+~~~
+const express = require("express")
+const app = express()
+const port = 5000
+
+app.get("/mesa/:numero_mesa", (req, res) => {
+	let m = "Mesa " + req.params.numero_mesa + " no existe";
+	for (let i=0; i < datos.mesas.length; i++) {
+			if (datos.mesas[i].mesaN == req.params.numero_mesa) {
+					m = datos.mesas[i];
+					let mesa = new mesaClass.Mesa(m.mesaN, m.personas, m.cuenta, m.ocupada)
+					for (let i=0; i < m.pedidos.length; i++)
+							mesa.incluirPedidoFromJSON(m.pedidos[i])
+
+					return await "Los pedidos para la mesa: " + mesa.getMesa() + " son: \n"
+					+ mesa.mostrarPedidos();
+			}
+	}
+	return await m; //JSON.stringify(m); // JSON.stringify(req.params)
+});
+
+app.listen(port, () => {
+	console.log("Escuchando en puerto " + port + "...")
+})
+
+module.exports = app
+~~~
+
+Además, como resultado a hacer la petición obtenemos:
+
+![mesa](https://github.com/LCinder/Autoevaluacion-IV/blob/master/Tema%206%20-%20Microservicios/img/mesa.PNG)
 
 
 ### Ejercicio 3.- Programar un microservicio en express (o el lenguaje y marco elegido) que incluya variables como en el caso anterior.
