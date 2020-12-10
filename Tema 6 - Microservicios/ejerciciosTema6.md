@@ -1,8 +1,31 @@
 ## Ejercicios Tema 6 - Microservicios
 
+
+
 ---
 
+
 ### Ejercicio 1.- Instalar etcd3, averiguar qué bibliotecas funcionan bien con el lenguaje que estemos escribiendo el proyecto (u otro lenguaje), y hacer un pequeño ejemplo de almacenamiento y recuperación de una clave; hacer el almacenamiento desde la línea de órdenes (con etcdctl) y la recuperación desde el mini-programa que hagáis.
+
+Primero antes de nada instalamos `etcdctl` desde la terminal y `etc3` con `npm i etc3.`
+Una vez instalados ejecutamos `etcdctl put key dontYouSeeMe` para guardar como clave en *key* el valor que aparece detrás. Ahora seguimos los pasos indicados en la [documentación del módulo etc3](https://www.npmjs.com/package/etcd3) en donde viene un ejemplo que usaremos en el archivo [etc3.js](https://github.com/LCinder/Autoevaluacion-IV/blob/master/Tema%206%20-%20Microservicios/etcd3.js) en donde tenemos:
+
+~~~
+const { Etcd3 } = require('etcd3');
+const client = new Etcd3();
+
+(async () => {
+  const key = await client.get('key').string();
+  console.log("Key: ", key);
+
+  await client.delete().all();
+})();
+~~~
+
+Que básicamente obtiene la clave anteriormente asignada y la mostramos por pantalla, obteniendo
+
+![etcd3](https://github.com/LCinder/Autoevaluacion-IV/blob/master/Tema%206%20-%20Microservicios/img/etcd3.PNG)
+
 
 
 
@@ -26,11 +49,10 @@ Primero instalamos *express* con `npm i express` y luego creamos una app muy sen
 
 ![Put](https://github.com/LCinder/Autoevaluacion-IV/blob/master/Tema%206%20-%20Microservicios/img/put.PNG)
 
-- Por último indicamos al servidor que escuche en un puerto indicado y lo exportamos para poder utilizarlo mas adelante, quedando de la forma:
+- Por último indicamos al servidor que escuche en un puerto indicado y lo exportamos para poder utilizarlo mas adelante, quedando el código del archivo [express.js](https://github.com/LCinder/Autoevaluacion-IV/blob/master/Tema%206%20-%20Microservicios/express.js) de la forma:
 
 
 ~~~
-
 const express = require("express")
 const app = express()
 const port = 5000
@@ -48,9 +70,6 @@ app.listen(port, () => {
 })
 
 module.exports = app
-
-
-
 ~~~
 
 
@@ -59,14 +78,12 @@ module.exports = app
 
 Como *framework* de pruebas utilizaremos el del ejemplo del hito actual, *supertest* que a su vez utiliza *mocha,* que no he utilizado en prácticas y así me sirve para aprender otro *framework* de test diferente. Para ello isntalamos los 2 con `npm i mocha supertest` y pasamos a escribir 2 pruebas sencillas pero que nos sirven para hacernos una idea de cómo funcionan estos *frameworks* de testeo.
 
-Creamos objetos tanto de `supertest` como de la aplicación realizada en el ejercicio anterior y vamos a realizar un test en el que vamos a hacer una petición al servidor a la ruta por defecto indicando que deberíamos obtener un string determinado y un código determinado (200 que idica que todo funciona).
+Creamos objetos tanto de `supertest` como de la aplicación realizada en el ejercicio anterior y vamos a realizar un test en el que vamos a hacer una petición al servidor a la ruta por defecto indicando que deberíamos obtener un string determinado y un código determinado (200 que idica que todo funciona). El código del archivo [supertest.js](https://github.com/LCinder/Autoevaluacion-IV/blob/master/Tema%206%20-%20Microservicios/supertest.js) queda de la forma:
 
 
 ~~~
-
 const supertest = require("supertest")
 const app = require("./express.js")
-
 
 describe("GET /", function () {
 	it("Deberia devolver string Funciona", function (done) {
@@ -77,13 +94,10 @@ describe("GET /", function () {
 		});
 	});
 });
-
-
 ~~~
 
 Ahora realizamos lo mismo que antes pero con la ruta *saludo* haciendo *PUT* e indicando lo que deberíamos obtener y el código correspondiente de la forma:
 
-~~~
 
 describe("PUT /saludo/V", function () {
 	it("Deberia devolver saludo con nombre", function (done) {
@@ -94,7 +108,6 @@ describe("PUT /saludo/V", function () {
 		});
 	});
 });
-
 ~~~
 
 Y ejecutamos los test con `mocha express.js`, con lo cuál obtenemos como salida:
@@ -128,23 +141,9 @@ Podemos obtener más datos con el comando `pm2 logs` donde, entre otros, nos apa
 
 ~~~
 "scripts": {
-	"tests": "mocha express.js"
-	"moniTWOrize": "pm2 start express.js -i 2"
+	"tests": "mocha express.js",
+	"moniTWOrize": "pm2 start express.js -i 2",
 	"moniTWOrize stop": "pm2 stop all"
 }
 
-
-
 ~~~
-
-
-
-
-
-
-
-
-
-
-
-.
