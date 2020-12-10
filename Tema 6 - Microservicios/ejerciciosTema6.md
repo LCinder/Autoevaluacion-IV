@@ -2,18 +2,18 @@
 
 ---
 
-## Ejercicio 1.- Instalar etcd3, averiguar qué bibliotecas funcionan bien con el lenguaje que estemos escribiendo el proyecto (u otro lenguaje), y hacer un pequeño ejemplo de almacenamiento y recuperación de una clave; hacer el almacenamiento desde la línea de órdenes (con etcdctl) y la recuperación desde el mini-programa que hagáis.
+### Ejercicio 1.- Instalar etcd3, averiguar qué bibliotecas funcionan bien con el lenguaje que estemos escribiendo el proyecto (u otro lenguaje), y hacer un pequeño ejemplo de almacenamiento y recuperación de una clave; hacer el almacenamiento desde la línea de órdenes (con etcdctl) y la recuperación desde el mini-programa que hagáis.
 
 
 
 
 
 
-## Ejercicio 2.- Realizar una aplicación básica que use express para devolver alguna estructura de datos del modelo que se viene usando en el curso.
+### Ejercicio 2.- Realizar una aplicación básica que use express para devolver alguna estructura de datos del modelo que se viene usando en el curso.
 
 
 
-## Ejercicio 3.- Programar un microservicio en express (o el lenguaje y marco elegido) que incluya variables como en el caso anterior.
+### Ejercicio 3.- Programar un microservicio en express (o el lenguaje y marco elegido) que incluya variables como en el caso anterior.
 
 
 Primero instalamos *express* con `npm i express` y luego creamos una app muy sencilla pero que permite entender cómo funciona y qué nos aporta *express.*
@@ -55,7 +55,7 @@ module.exports = app
 
 
 
-## Ejercicio 4.- Crear pruebas para las diferentes rutas de la aplicación.
+### Ejercicio 4.- Crear pruebas para las diferentes rutas de la aplicación.
 
 Como *framework* de pruebas utilizaremos el del ejemplo del hito actual, *supertest* que a su vez utiliza *mocha,* que no he utilizado en prácticas y así me sirve para aprender otro *framework* de test diferente. Para ello isntalamos los 2 con `npm i mocha supertest` y pasamos a escribir 2 pruebas sencillas pero que nos sirven para hacernos una idea de cómo funcionan estos *frameworks* de testeo.
 
@@ -105,7 +105,7 @@ Inidando que todo ha ido perfecto y que no hay errores.
 
 
 
-## Ejercicio 5.- Experimentar con diferentes gestores de procesos y servidores web front-end para un microservicio que se haya hecho con antelación, por ejemplo en la sección anterior. 	
+### Ejercicio 5.- Experimentar con diferentes gestores de procesos y servidores web front-end para un microservicio que se haya hecho con antelación, por ejemplo en la sección anterior. 	
 
 En este ejemplo utilizamos el gestor de procesos **pm2** del hito actual ya que no lo había utilizado antes, lo instalamos con `npm i pm2`
 
@@ -121,7 +121,7 @@ Podemos obtener más datos con el comando `pm2 logs` donde, entre otros, nos apa
 
 
 
-## Ejercicio 6.- Usar rake, invoke o la herramienta equivalente en tu lenguaje de programación para programar diferentes tareas que se puedan lanzar fácilmente desde la línea de órdenes.
+### Ejercicio 6.- Usar rake, invoke o la herramienta equivalente en tu lenguaje de programación para programar diferentes tareas que se puedan lanzar fácilmente desde la línea de órdenes.
 
 
 Ésto se puede incluir en *package.json* como una especie de atajo al igual que hicimos con los test en hitos anteriores, simplemente poniendo en *scripts* en comando a usar (precedido del gestor de módulos de *Node.js, npm* y la acción a realizar, de manera que usando `npm tests` ejecutamos en realidad `mocha express.js` quedando todos los atajos de la forma:
