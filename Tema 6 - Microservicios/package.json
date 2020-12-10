@@ -1,0 +1,21 @@
+{
+  "name": "prueba",
+  "version": "1.0.0",
+  "description": "",
+  "main": "express.js",
+  "scripts": {
+    "tests": "mocha express.js",
+    "moniTWOrize": "pm2 start express.js -i 2",
+    "moniTWOrize stop": "pm2 stop all"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "etcd": "0.0.3",
+    "etcd3": "^1.1.0",
+    "etcdctl": "^1.1.4",
+    "mocha": "^8.2.1",
+    "supertest": "^6.0.1"
+  }
+}
