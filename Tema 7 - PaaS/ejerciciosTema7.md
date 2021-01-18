@@ -7,7 +7,7 @@
 Darse de alta es muy sencillo y sólo deberemos registrarnos en la página como en cualquier otra, y directamente entraremos en el *Dashboard* donde podremos crear *dynos* o aplicaciones.
 
 
-![](https://github.com/LCinder/Order-n-Go/blob/master/docs/img/netlifyCreado.PNG)
+![heroku](https://github.com/LCinder/Autoevaluacion-IV/blob/master/Tema%207%20-%20PaaS/img/heroku1.PNG)
 
 ---
 
